@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvey - Platform Overview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        cream: '#F9F9F7',
+                        dark: '#111111',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+                filter: blur(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Base animation class - ease-out for entering elements */
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-scale-in {
+            opacity: 0;
+            animation: scaleIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        /* Staggered delays for sequential reveals */
+        .delay-0 { animation-delay: 0ms; }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+        .delay-600 { animation-delay: 600ms; }
+
+        /* Text wrapping utilities */
+        .text-balance { text-wrap: balance; }
+        .text-pretty { text-wrap: pretty; }
+
+        /* Custom utilities */
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .nav-link:hover {
+            color: #444;
+        }
+
+        /* Accessibility: Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in-up,
+            .animate-fade-in,
+            .animate-scale-in {
+                animation: none;
+                opacity: 1;
+                transform: none;
+                filter: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-cream text-dark min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full px-6 py-6 md:px-10 animate-fade-in delay-0">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="font-serif text-3xl md:text-4xl tracking-tight font-medium">
+                Harvey
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center space-x-8 text-[15px] font-medium text-gray-900">
+                <div class="nav-link">
+                    Platform 
+                    <svg class="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="nav-link">
+                    Solutions
+                    <svg class="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <a href="#" class="nav-link hover:text-gray-600">Customers</a>
+                <a href="#" class="nav-link hover:text-gray-600">Security</a>
+                <div class="nav-link">
+                    Resources
+                    <svg class="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="nav-link">
+                    About
+                    <svg class="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+            </div>
+
+            <!-- Login -->
+            <div class="text-[15px] font-medium">
+                <a href="#" class="hover:text-gray-600 transition-colors">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="flex-grow w-full px-6 md:px-10 mt-16 md:mt-24 max-w-[1400px] mx-auto">
+        
+        <!-- Label -->
+        <div class="mb-8 animate-fade-in-up delay-100">
+            <p class="text-lg md:text-[19px] font-medium text-gray-900">Platform Overview</p>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] leading-[0.95] tracking-tight text-dark mb-12 animate-fade-in-up delay-200">
+            Engineered for<br>Every Task
+        </h1>
+
+        <!-- Description -->
+        <div class="max-w-2xl mb-24 animate-fade-in-up delay-300">
+            <p class="text-xl md:text-[22px] leading-relaxed text-gray-800 text-pretty">
+                More than 100,000 legal professionals around the world use Harvey cut through complexity to navigate complex legal work.
+            </p>
+        </div>
+
+        <!-- Hero Image / Dashboard Mockup -->
+        <div class="w-full relative rounded-t-lg overflow-hidden animate-scale-in delay-400">
+            <!-- 
+                 Using a placeholder that mimics the dark textured background 
+                 and the UI card visible in the screenshot.
+                 The aspect ratio is kept wide to match the design.
+            -->
+            <img 
+                src="https://placehold.co/1400x700/1a1f21/444444?text=Dashboard+Interface+Mockup" 
+                alt="Harvey Platform Interface" 
+                class="w-full h-auto object-cover rounded-t-lg shadow-2xl"
+            >
+            
+            <!-- Overlay to mimic the specific UI detail if needed, but the image tag above covers the requirement -->
+            <!-- Note: In a real implementation, the dark background and the white card would likely be separate HTML elements, 
+                 but per instructions to use <img> for visual elements, the placeholder represents the entire graphic composition. -->
+        </div>
+
+    </main>
+
+</body>
+</html>
