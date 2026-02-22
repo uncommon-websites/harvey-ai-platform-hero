@@ -3,77 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harvey - Platform Overview</title>
+    <title>Harvey - Engineered for Every Task</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        serif: ['Newsreader', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        background: '#FBFBF9',
-                        dark: '#0A0A0A',
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
-        /* Animation keyframes */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-                filter: blur(4px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-                filter: blur(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.98);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        /* Base animation class */
         .animate-fade-in-up {
             opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
         .animate-fade-in {
             opacity: 0;
-            animation: fadeIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
         .animate-scale-in {
             opacity: 0;
-            animation: scaleIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Staggered delays */
         .delay-0 { animation-delay: 0ms; }
         .delay-100 { animation-delay: 100ms; }
         .delay-200 { animation-delay: 200ms; }
@@ -81,136 +39,112 @@
         .delay-400 { animation-delay: 400ms; }
         .delay-500 { animation-delay: 500ms; }
         .delay-600 { animation-delay: 600ms; }
-        .delay-700 { animation-delay: 700ms; }
 
-        /* Typography Utilities */
         .text-balance { text-wrap: balance; }
         .text-pretty { text-wrap: pretty; }
 
-        /* Custom adjustments */
-        body {
-            background-color: #FBFBF9;
-            color: #111;
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in-up, .animate-fade-in, .animate-scale-in {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
         }
-        
-        /* Smooth font rendering */
-        .font-smooth {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+
+        /* Custom font family to closely match the screenshot's serif */
+        @font-face {
+            font-family: 'HarveySerif';
+            src: local('Georgia'), local('Times New Roman'), serif;
+        }
+        .font-harvey-serif {
+            font-family: 'HarveySerif', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
         }
     </style>
 </head>
-<body class="font-sans font-smooth overflow-x-hidden">
+<body class="bg-[#F6F6F6] text-[#111111] font-sans antialiased overflow-x-hidden selection:bg-black selection:text-white">
 
     <!-- Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 px-6 py-5 md:px-10 flex items-center justify-between bg-[#FBFBF9]/90 backdrop-blur-sm animate-fade-in delay-0">
-        <!-- Logo -->
-        <div class="flex items-center">
-            <a href="#" class="font-serif text-3xl font-medium tracking-tight text-black">Harvey</a>
+    <nav class="w-full px-6 md:px-12 py-6 flex items-center justify-between animate-fade-in delay-0 relative z-10">
+        <div class="flex items-center gap-10 lg:gap-14">
+            <!-- Logo -->
+            <a href="#" class="text-[28px] font-harvey-serif tracking-tight leading-none hover:opacity-80 transition-opacity duration-200">
+                Harvey
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center gap-7 text-[14px] font-medium text-[#111111]">
+                <a href="#" class="flex items-center gap-1.5 hover:opacity-70 transition-opacity duration-200">
+                    Platform
+                    <svg width="9" height="5" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-60">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="#" class="flex items-center gap-1.5 hover:opacity-70 transition-opacity duration-200">
+                    Solutions
+                    <svg width="9" height="5" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-60">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="#" class="hover:opacity-70 transition-opacity duration-200">Customers</a>
+                <a href="#" class="hover:opacity-70 transition-opacity duration-200">Security</a>
+                <a href="#" class="flex items-center gap-1.5 hover:opacity-70 transition-opacity duration-200">
+                    Resources
+                    <svg width="9" height="5" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-60">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="#" class="flex items-center gap-1.5 hover:opacity-70 transition-opacity duration-200">
+                    About
+                    <svg width="9" height="5" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-60">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
         </div>
 
-        <!-- Desktop Menu -->
-        <nav class="hidden lg:flex items-center space-x-8 text-[15px] font-medium text-gray-800">
-            <div class="group relative flex items-center cursor-pointer hover:text-black transition-colors">
-                Platform
-                <svg class="w-3 h-3 ml-1.5 text-gray-500 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </div>
-            <div class="group relative flex items-center cursor-pointer hover:text-black transition-colors">
-                Solutions
-                <svg class="w-3 h-3 ml-1.5 text-gray-500 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </div>
-            <a href="#" class="hover:text-black transition-colors">Customers</a>
-            <a href="#" class="hover:text-black transition-colors">Security</a>
-            <div class="group relative flex items-center cursor-pointer hover:text-black transition-colors">
-                Resources
-                <svg class="w-3 h-3 ml-1.5 text-gray-500 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </div>
-            <div class="group relative flex items-center cursor-pointer hover:text-black transition-colors">
-                About
-                <svg class="w-3 h-3 ml-1.5 text-gray-500 group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </div>
-        </nav>
-
-        <!-- Right Actions -->
-        <div class="flex items-center">
-            <a href="#" class="text-[15px] font-medium text-gray-800 hover:text-black transition-colors">Login</a>
+        <!-- Login -->
+        <div class="text-[14px] font-medium text-[#111111]">
+            <a href="#" class="hover:opacity-70 transition-opacity duration-200">Login</a>
         </div>
-    </header>
+    </nav>
 
-    <!-- Main Hero Section -->
-    <main class="pt-32 md:pt-40 px-6 md:px-10 max-w-[1600px] mx-auto">
+    <!-- Hero Section -->
+    <main class="w-full max-w-[1600px] mx-auto px-6 md:px-12 pt-12 md:pt-20 pb-24">
         
-        <!-- Hero Content -->
-        <div class="flex flex-col items-start mb-16 md:mb-24">
-            <!-- Label -->
-            <div class="animate-fade-in-up delay-100 mb-6 md:mb-8">
-                <span class="text-base md:text-lg font-medium text-gray-900">Platform Overview</span>
-            </div>
+        <!-- Text Content -->
+        <div class="max-w-[1200px]">
+            <p class="text-[16px] md:text-[18px] font-medium text-[#111111] mb-5 animate-fade-in-up delay-100">
+                Platform Overview
+            </p>
 
-            <!-- Headline -->
-            <h1 class="animate-fade-in-up delay-200 font-serif text-[3.5rem] sm:text-[5rem] md:text-[6.5rem] lg:text-[8rem] leading-[0.95] tracking-tight text-black mb-10 md:mb-14 text-balance">
-                Engineered for<br class="hidden sm:block" />
-                Every Task
+            <h1 class="font-harvey-serif text-[64px] sm:text-[80px] md:text-[110px] lg:text-[140px] leading-[0.88] tracking-[-0.03em] text-[#111111] mb-10 text-balance animate-fade-in-up delay-200">
+                Engineered for<br>Every Task
             </h1>
 
-            <!-- Description -->
-            <div class="animate-fade-in-up delay-300 max-w-xl">
-                <p class="text-lg md:text-[1.35rem] leading-relaxed text-gray-800 text-pretty">
-                    More than 100,000 legal professionals around the world use Harvey cut through complexity to navigate complex legal work.
-                </p>
-            </div>
+            <p class="text-[18px] md:text-[20px] leading-[1.5] text-[#666666] max-w-[480px] text-pretty animate-fade-in-up delay-300">
+                More than 100,000 legal professionals around the world use Harvey cut through complexity to navigate complex legal work.
+            </p>
         </div>
 
-        <!-- Hero Image / UI Visualization -->
-        <div class="relative w-full rounded-t-3xl overflow-hidden animate-scale-in delay-400 group">
-            <!-- Dark Background Texture Image -->
-            <!-- Using a dark textured placeholder to simulate the abstract background -->
-            <img src="https://placehold.co/1600x800/1a1f21/1a1f21" alt="Harvey Platform Interface Background" class="w-full h-[400px] md:h-[600px] object-cover opacity-90" />
+        <!-- Hero Image Mockup -->
+        <div class="mt-16 md:mt-24 w-full animate-scale-in delay-400">
+            <div class="w-full h-[400px] md:h-[600px] lg:h-[700px] rounded-[24px] overflow-hidden relative bg-[#1A1A1A]">
+                <!-- Using placehold.co to represent the complex dark textured background + UI overlay seen in the design -->
+                <img 
+                    src="https://placehold.co/2880x1400/1a1a1a/333333?text=Platform+Interface+Mockup" 
+                    alt="Harvey Platform Interface" 
+                    class="w-full h-full object-cover object-top"
+                >
+            </div>
             
-            <!-- Gradient Overlay for depth -->
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 pointer-events-none"></div>
-
-            <!-- UI Card Overlay (Simulating the interface shown in screenshot) -->
-            <div class="absolute bottom-0 left-0 w-full md:w-auto md:max-w-4xl p-4 md:p-0 md:pl-12 md:pb-0">
-                <!-- The White UI Panel -->
-                <div class="bg-[#FBFBF9] rounded-t-xl md:rounded-t-2xl shadow-2xl flex flex-row h-full w-full md:w-[800px] overflow-hidden transform translate-y-2 transition-transform duration-700 ease-out group-hover:translate-y-0">
-                    
-                    <!-- Sidebar -->
-                    <div class="w-64 bg-[#F5F5F4] border-r border-gray-200 p-4 hidden md:flex flex-col gap-4">
-                        <!-- User Profile Stub -->
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-8 h-8 bg-gray-800 rounded text-white flex items-center justify-center text-xs font-serif">WL</div>
-                            <div class="text-sm font-medium text-gray-900">Whitford Lane</div>
-                        </div>
-                        
-                        <!-- Search Bar Stub -->
-                        <div class="flex items-center justify-between px-3 py-2 bg-white rounded border border-gray-200 shadow-sm">
-                            <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                                <span class="text-xs text-gray-400">Search</span>
-                            </div>
-                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                        </div>
-
-                        <!-- Nav Stubs -->
-                        <div class="space-y-1 mt-2">
-                            <div class="h-2 w-24 bg-gray-200 rounded"></div>
-                            <div class="h-2 w-32 bg-gray-200 rounded"></div>
-                            <div class="h-2 w-20 bg-gray-200 rounded"></div>
-                        </div>
-                    </div>
-
-                    <!-- Main Content Area (White Space) -->
-                    <div class="flex-1 bg-white p-6 md:p-8 min-h-[200px] md:min-h-[300px]">
-                        <!-- Content Stubs -->
-                        <div class="h-4 w-1/3 bg-gray-100 rounded mb-6"></div>
-                        <div class="space-y-3">
-                            <div class="h-2 w-full bg-gray-50 rounded"></div>
-                            <div class="h-2 w-5/6 bg-gray-50 rounded"></div>
-                            <div class="h-2 w-4/5 bg-gray-50 rounded"></div>
-                        </div>
-                    </div>
+            <!-- Watch Video Button -->
+            <div class="mt-6 flex items-center gap-3 text-[14px] font-medium text-[#111111] hover:opacity-70 transition-opacity cursor-pointer animate-fade-in-up delay-500 w-max">
+                <div class="w-7 h-7 rounded-full bg-[#111111] text-white flex items-center justify-center pl-0.5">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
                 </div>
+                Watch Video
             </div>
         </div>
 
